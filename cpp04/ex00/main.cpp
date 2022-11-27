@@ -1,0 +1,37 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: esanchez <marvin@42lausanne.ch>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/09/12 10:36:40 by esanchez          #+#    #+#             */
+/*   Updated: 2022/09/12 10:36:43 by esanchez         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
+#include <string>
+#include <iostream>
+#include <fstream>
+
+int main( void )
+{
+	std::cout << std::endl;
+
+	const Animal* meta = new Animal();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+
+//	std::cout << j->getType() << " " << std::endl;
+//	std::cout << i->getType() << " " << std::endl;
+	i->makeSound(); //will output the cat sound!
+	j->makeSound();
+	meta->makeSound();
+	delete meta;
+	delete j;
+	delete i;
+	return 0;
+}
