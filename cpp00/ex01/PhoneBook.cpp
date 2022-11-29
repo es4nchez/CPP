@@ -11,11 +11,12 @@
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
+#include <string>
+#include <iostream>
 
 PhoneBook::PhoneBook( void )
 {
-	this->ctsNb = -1;
-	this->totalNb = 0;
+	this->_totalNb = 0;
 	std::cout << "Phonebook created" << std::endl;
 
 }
@@ -29,51 +30,51 @@ PhoneBook::~PhoneBook( void )
 
 void	PhoneBook::newContact()
 {
-	std::string	data;
 
-	this->ctsNb += 1;
-	this->totalNb += 1;
-	this->contacts[this->ctsNb].index = this->ctsNb;
+	std::string data;
+
+	this->_totalNb += 1;
 	std::cout << "Please enter some data about the contact :" << "\n";
 	std::cout << "First Name : ";
 	std::cin >> data;
-	this->contacts[this->ctsNb].firstName = data;
+	this->contacts[this->_totalNb % 8].setFirstName(data);
 	std::cout << "Last Name : ";
 	std::cin >> data;
-	this->contacts[this->ctsNb].lastName = data;
+	this->contacts[this->_totalNb % 8].setLastName(data);
 	std::cout << "Nickname : ";
 	std::cin >> data;
-	this->contacts[this->ctsNb].nickName = data;
+	this->contacts[this->_totalNb % 8].setNickName(data);
 	std::cout << "Phone number : ";
 	std::cin >> data;
-	this->contacts[this->ctsNb].phoneNumber = data;
-	std::cin.ignore(); // Have to use this after numerical values
+	this->contacts[this->_totalNb % 8].setPhoneNumber(data);
+	std::cin.ignore();
 	std::cout << "And the best, the darkest secret : ";
 	std::getline(std::cin, data);
-	this->contacts[this->ctsNb].darkestSecret = data;
+	this->contacts[this->_totalNb % 8].setDarkestSecret(data);
 	std::cout << std::endl;
 	return ;
 }
 
 void	PhoneBook::printInfo( int nb )
 {
-	std::cout << "First Name \t: " << this->contacts[nb].firstName << std::endl;
-	std::cout << "Last Name \t: " << this->contacts[nb].lastName << std::endl;
-	std::cout << "Nickname \t: " << this->contacts[nb].nickName << std::endl;
-	std::cout << "Phone number \t: " << this->contacts[nb].phoneNumber << std::endl;
-	std::cout << "Darkest secret \t: " << this->contacts[nb].darkestSecret << std::endl << std::endl;
+	std::cout << "First Name \t: " << this->contacts[nb].getFirstName() << std::endl;
+	std::cout << "Last Name \t: " << this->contacts[nb].getLastName() << std::endl;
+	std::cout << "Nickname \t: " << this->contacts[nb].getNickName() << std::endl;
+	std::cout << "Phone number \t: " << this->contacts[nb].getPhoneNumber() << std::endl;
+	std::cout << "Darkest secret \t: " << this->contacts[nb].getDarkestSecret() << std::endl << std::endl;
 }
 
 void	PhoneBook::printContact()
 {
 	std::string	data;
-	int			selected;
+	std::string	selected;
+	int	nb;
 
 	std::cout << std::endl << S_COL << S_VOID << S_IN << S_VOID << S_COL;
-	for (int i=0; i < this->totalNb; i++)
+	for (int i=0; i < std::min(this->_totalNb, 8); i++)
 	{
 		std::cout << "|         " << i << "|";
-		data = this->contacts[i].firstName;
+		data = this->contacts[i].getFirstName();
 		if (data.size() > 10)
 		{
 			data = data.insert(9, ".");
@@ -83,7 +84,7 @@ void	PhoneBook::printContact()
 			std::cout << std::setw(10);
 		std::cout << data;
 		std::cout << "|";
-		data = this->contacts[i].lastName;
+		data = this->contacts[i].getLastName();
 		if (data.size() > 10)
 		{
 			data = data.insert(9, ".");
@@ -93,7 +94,7 @@ void	PhoneBook::printContact()
 			std::cout << std::setw(10);
 		std::cout << data;
 		std::cout << "|";
-		data = this->contacts[i].nickName;
+		data = this->contacts[i].getNickName();
 		if (data.size() > 10)
 		{
 			data = data.insert(9, ".");
@@ -106,13 +107,15 @@ void	PhoneBook::printContact()
 		std::cout << S_SEP;
 	}
 	std::cout << "\nEnter the index of the researched contact : " ;
-	std::cin >> selected;
-	while (selected < 0 || selected > this->totalNb - 1)
+	std::getline(std::cin, selected);
+	nb = std::atoi(selected.c_str());
+	while (nb < 0 || nb > std::min(this->_totalNb - 1, 8))
 	{
 		std::cout << "Not a valid number" << std::endl;
 		std::cout << "Enter the index of the researched contact : " ;
-		std::cin >> selected;
+		std::getline(std::cin, selected);
+		nb = std::atoi(selected.c_str());
 	}
-	std::cout << "Number selected : " << selected << std::endl << std::endl;
-	this->printInfo(selected);
+	std::cout << "Number selected : " << nb << std::endl << std::endl;
+	this->printInfo(nb);
 }

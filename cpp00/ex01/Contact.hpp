@@ -18,18 +18,28 @@
 
 class	Contact {
 
+private:
+
+	std::string		_firstName;
+	std::string		_lastName;
+	std::string		_nickName;
+	std::string		_phoneNumber;
+	std::string		_darkestSecret;
+
 public:
-
-	int				index;
-	std::string		firstName;
-	std::string		lastName;
-	std::string		nickName;
-	std::string		phoneNumber;
-	std::string		darkestSecret;
-
-	Contact( void );
+	Contact();
 	~Contact( void );
+	std::string getFirstName() const;
+	std::string getLastName() const;
+	std::string getNickName() const;
+	std::string getPhoneNumber() const;
+	std::string getDarkestSecret() const;
 
+	void    setFirstName(std::string str);
+	void    setLastName(std::string str);
+	void    setNickName(std::string str);
+	void    setPhoneNumber(std::string str);
+	void    setDarkestSecret(std::string str);
 };
 
 #endif

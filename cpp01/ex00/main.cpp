@@ -15,12 +15,12 @@
 int	main(void)
 {
 	Zombie	*first_one;
+	Zombie	*first_two;
 
 	first_one = newZombie("Henry");
-	newZombie("Henry2");
-
-
+	first_two = newZombie("Henry2");
+	delete first_one;
 	randomChump("Fred");
-
+	delete first_two;
 	return (0);
 }

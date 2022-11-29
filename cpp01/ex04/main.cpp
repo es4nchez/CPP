@@ -18,7 +18,7 @@
 std::string		replace(std::string line, std::string str, std::string rpl)
 {
 	int	pos = line.find(str);
-	while (pos != std::string::npos)
+	while (pos != (int)std::string::npos)
 	{
 		line.erase(pos, str.size());
 		line.insert(pos, rpl);

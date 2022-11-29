@@ -2,14 +2,14 @@
 SRCS	= main.cpp
 NAME 	= hi_this_is_brain
 COMP 	= c++
-FLAGS 	= -Wall -Wextra -Werror -std=c++98
+CXXFLAGS 	= -Wall -Wextra -Werror -std=c++98
 
 OBJS	= ${SRCS:.cpp=.o}
 
 all:	$(NAME)
 
 $(NAME):	$(OBJS)
-	$(COMP) $(FLAGS) $(OBJS) -o $(NAME)
+	$(COMP) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 %.o:	%.cpp
 		$(COMP) $(FLAGS) -o $@ -c $<

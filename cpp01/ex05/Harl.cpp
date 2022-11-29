@@ -28,28 +28,28 @@ void	Harl::debug(void)
 {
 
 
-	std::cout << "DEBUG" << std::endl;
+	std::cout << "[DEBUG]\t Wesh tout va bien, c'est les logs" << std::endl;
 }
 
 void	Harl::info(void)
 {
 
 
-	std::cout << "INFO" << std::endl;
+	std::cout << "[INFO]\t Tiens, voici quelques infos" << std::endl;
 }
 
 void	Harl::warning(void)
 {
 
 
-	std::cout << "WARNING" << std::endl;
+	std::cout << "[WARNING] Fais gaffe la, y'a un truc bizzare" << std::endl;
 }
 
 void	Harl::error(void)
 {
 
 
-	std::cout << "ERROR" << std::endl;
+	std::cout << "[ERROR} T'as des erreurs partout, ca compile pas" << std::endl;
 }
 
 void	Harl::complain( std::string level )

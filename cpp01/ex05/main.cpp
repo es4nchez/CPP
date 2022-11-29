@@ -20,6 +20,9 @@ int	main(void)
 	Harl	msg;
 
 	msg.complain("DEBUG");
-
+	msg.complain("INFO");
+	msg.complain("WARNING");
+	msg.complain("ERROR");
+	msg.complain("NOTFOUND");
 	return 1;
 }

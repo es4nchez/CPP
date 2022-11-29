@@ -1,6 +1,6 @@
 
 SRCS	= main.cpp Harl.cpp
-NAME 	= Harl
+NAME 	= HarlFilter
 COMP 	= c++
 CXXFLAGS 	= -Wall -Wextra -Werror -std=c++98
 

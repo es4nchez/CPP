@@ -57,13 +57,6 @@ void	Harl::complain( std::string level )
 
 	int i = 0;
 
-	void (Harl::*functions[]) (void) = {
-		&Harl::debug,
-		&Harl::info,
-		&Harl::warning,
-		&Harl::error
-	};
-
 	std::string	levels[] = {
 		"DEBUG",
 		"INFO",
@@ -75,10 +68,23 @@ void	Harl::complain( std::string level )
 	{
 		if (level == levels[i])
 		{
-			(this->*functions[i])();
-			return ;
+			break;
 		}
 		i++;
+	}
+	switch (i)
+	{
+		case 0:
+			debug();
+		case 1:
+			info();
+		case 2:
+			warning();
+		case 3:
+			error();
+			break;
+		default:
+			std::cout << "Some garbage..." << std::endl;
 	}
 }
 

@@ -2,12 +2,12 @@
 SRCS	= main.cpp Zombie.cpp
 NAME 	= zombie
 COMP 	= c++
-FLAGS 	= -Wall -Wextra -Werror -std=c++98
+CXXFLAGS 	= -Wall -Wextra -Werror -std=c++98
 
 OBJS	= ${SRCS:.cpp=.o}
 
 $(NAME):	$(OBJS)
-	@$(COMP) $(FLAGS) $(OBJS) -o $(NAME)
+	@$(COMP) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 all:	$(NAME)
 

@@ -39,8 +39,7 @@ public:
 private:
 
 	Contact contacts[8];
-	int		ctsNb;
-	int		totalNb;
+	int		_totalNb;
 };
 
 #endif

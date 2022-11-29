@@ -15,11 +15,13 @@
 #include <iostream>
 #include <fstream>
 
-int	main(void)
+int	main(int ac, char **av)
 {
 	Harl	msg;
 
-	msg.complain("DEBUG");
+	if (ac != 2)
+		return (0);
+	msg.complain(av[1]);
 
 	return 1;
 }
