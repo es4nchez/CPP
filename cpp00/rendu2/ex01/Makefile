@@ -1,6 +1,6 @@
 
-SRCS	= main.cpp Zombie.cpp zombieHorde.cpp
-NAME 	= zombie
+SRCS	= main.cpp Contact.cpp PhoneBook.cpp
+NAME 	= PhoneBook
 COMP 	= c++
 CXXFLAGS 	= -Wall -Wextra -Werror -std=c++98
 
@@ -19,7 +19,4 @@ fclean: clean
 
 re:		fclean all
 
-cheaks:
-		leaks --atExit -- ./zombie
-
-.PHONY: all clean fclean re cheaks
+.PHONY: all clean fclean re

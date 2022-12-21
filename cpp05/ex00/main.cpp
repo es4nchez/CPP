@@ -5,42 +5,53 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: esanchez <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/12 10:36:40 by esanchez          #+#    #+#             */
-/*   Updated: 2022/09/12 10:36:43 by esanchez         ###   ########.fr       */
+/*   Created: 2022/09/12 10:46:33 by esanchez          #+#    #+#             */
+/*   Updated: 2022/09/13 10:18:02 by esanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
-#include "Cat.hpp"
-#include "Dog.hpp"
-#include "WrongAnimal.hpp"
-#include "WrongCat.hpp"
-#include <string>
 #include <iostream>
 #include <fstream>
+#include "Bureaucrat.hpp"
+
 
 int main( void )
 {
-	std::cout << std::endl;
+	{try
+	{
+		Bureaucrat	b1("Henry", 50);
+		Bureaucrat	b2("Josef", -10);
+	}
+	catch (std::exception & e)
+	{
+		std::cout << "Error: " << e.what() << std::endl;
+	}}
 
-	const Animal* meta = new Animal();
-	const Animal* j = new Dog();
-	const Animal* i = new Cat();
+	Bureaucrat	b3("Marvin", 5);
+	Bureaucrat	b4("Romeo", 56);
+	std::cout << b3;
 
-	const WrongAnimal* wmeta = new WrongAnimal();
-	const WrongAnimal* wi = new WrongCat();
+	try
+	{
+		b3.incrementGrade(42);
+		b3.incrementGrade(420);
+	}
+	catch (std::exception & e)
+	{
+		std::cout << "Error: " << e.what() << std::endl;
+	}
 
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
-	meta->makeSound();
+	try
+	{
+		b4.decrementGrade(42);
+		b4.decrementGrade(420);
+	}
+	catch (std::exception & e)
+	{
+		std::cout << "Error: " << e.what() << std::endl;
+	}
 
-	wmeta->makeSound();
-	wi->makeSound();
-
-	delete meta;
-	delete j;
-	delete i;
-	delete wi;
-	delete wmeta;
+	Bureaucrat b5("Thierry", 42);
+	//std::cout << b5;
 	return 0;
 }

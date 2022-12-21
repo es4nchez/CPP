@@ -10,28 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
-#include <string>
-#include <iostream>
+#include "Zombie.h"
 
 int	main(void)
 {
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
-	}
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanB jim("Jim");
-	//	jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
-	}
-	return 0;
+	Zombie*		horde;
+	int			nbZombie;
+	std::string name;
+
+	std::cout << "\nName of zombie ? : ";
+	std::cin >> name;
+	std::cout << "And how many zombie to create ? : ";
+	std::cin >> nbZombie;
+	horde = zombieHorde( nbZombie, name);
+
+	delete [] horde;
+	return (0);
 }

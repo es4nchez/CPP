@@ -1,6 +1,6 @@
 
-SRCS	= main.cpp Zombie.cpp zombieHorde.cpp
-NAME 	= zombie
+SRCS	= main.cpp
+NAME 	= ft_sed
 COMP 	= c++
 CXXFLAGS 	= -Wall -Wextra -Werror -std=c++98
 
@@ -20,6 +20,6 @@ fclean: clean
 re:		fclean all
 
 cheaks:
-		leaks --atExit -- ./zombie
+		leaks --atExit -- ./${NAME}
 
 .PHONY: all clean fclean re cheaks

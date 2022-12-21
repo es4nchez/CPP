@@ -1,18 +1,21 @@
 
-SRCS	= main.cpp Zombie.cpp zombieHorde.cpp
-NAME 	= zombie
+SRCS	= main.cpp
+NAME 	= hi_this_is_brain
 COMP 	= c++
 CXXFLAGS 	= -Wall -Wextra -Werror -std=c++98
 
 OBJS	= ${SRCS:.cpp=.o}
 
-$(NAME):	$(OBJS)
-	@$(COMP) $(CXXFLAGS) $(OBJS) -o $(NAME)
-
 all:	$(NAME)
 
+$(NAME):	$(OBJS)
+	$(COMP) $(CXXFLAGS) $(OBJS) -o $(NAME)
+
+%.o:	%.cpp
+		$(COMP) $(FLAGS) -o $@ -c $<
+
 clean:
-		rm -f ${OBJS}
+		rm -f $(OBJS)
 
 fclean: clean
 		rm -f $(NAME)
@@ -20,6 +23,6 @@ fclean: clean
 re:		fclean all
 
 cheaks:
-		leaks --atExit -- ./zombie
+		leaks --atExit -- ./$(NAME)
 
 .PHONY: all clean fclean re cheaks

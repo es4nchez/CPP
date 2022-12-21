@@ -1,13 +1,13 @@
 
-SRCS	= main.cpp Zombie.cpp zombieHorde.cpp
-NAME 	= zombie
+SRCS	= main.cpp Harl.cpp
+NAME 	= HarlFilter
 COMP 	= c++
 CXXFLAGS 	= -Wall -Wextra -Werror -std=c++98
 
 OBJS	= ${SRCS:.cpp=.o}
 
 $(NAME):	$(OBJS)
-	@$(COMP) $(CXXFLAGS) $(OBJS) -o $(NAME)
+	$(COMP) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 all:	$(NAME)
 
@@ -20,6 +20,6 @@ fclean: clean
 re:		fclean all
 
 cheaks:
-		leaks --atExit -- ./zombie
+		leaks --atExit -- ./${NAME}
 
 .PHONY: all clean fclean re cheaks

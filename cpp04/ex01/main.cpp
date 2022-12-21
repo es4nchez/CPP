@@ -10,28 +10,38 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
+#include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
+#include "Brain.hpp"
 #include <string>
 #include <iostream>
+#include <fstream>
 
-int	main(void)
+int main( void )
 {
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
-	}
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanB jim("Jim");
-	//	jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
-	}
+	std::cout << std::endl;
+
+	const Animal* meta = new Animal();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+
+	const WrongAnimal* wmeta = new WrongAnimal();
+	const WrongAnimal* wi = new WrongCat();
+
+	i->makeSound(); //will output the cat sound!
+	j->makeSound();
+	meta->makeSound();
+
+	wmeta->makeSound();
+	wi->makeSound();
+
+	delete meta;
+	delete j;
+	delete i;
+	delete wi;
+	delete wmeta;
 	return 0;
 }

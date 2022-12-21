@@ -1,5 +1,5 @@
 
-SRCS	= main.cpp Zombie.cpp zombieHorde.cpp
+SRCS	= main.cpp Zombie.cpp newZombie.cpp randomChump.cpp
 NAME 	= zombie
 COMP 	= c++
 CXXFLAGS 	= -Wall -Wextra -Werror -std=c++98
@@ -17,9 +17,6 @@ clean:
 fclean: clean
 		rm -f $(NAME)
 
-re:		fclean all
+re:		clean fclean all
 
-cheaks:
-		leaks --atExit -- ./zombie
-
-.PHONY: all clean fclean re cheaks
+.PHONY: all clean fclean re

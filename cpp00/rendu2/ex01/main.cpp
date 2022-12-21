@@ -5,33 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: esanchez <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/12 10:36:40 by esanchez          #+#    #+#             */
-/*   Updated: 2022/09/12 10:36:43 by esanchez         ###   ########.fr       */
+/*   Created: 2022/04/04 20:32:11 by esanchez          #+#    #+#             */
+/*   Updated: 2022/04/04 20:32:13 by esanchez         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
-#include "HumanA.hpp"
-#include "HumanB.hpp"
-#include <string>
+#include "PhoneBook.hpp"
+#include "Contact.hpp"
 #include <iostream>
 
-int	main(void)
+int	main()
 {
+	std::string cmd;
+	PhoneBook	phonebook;
+
+	std::cout << START << std::endl;
+	std::cout << COMMANDS;
+
+	std::cout << "\nEnter the command : ";
+	while(std::getline(std::cin, cmd))
 	{
-		Weapon club = Weapon("crude spiked club");
-		HumanA bob("Bob", club);
-		bob.attack();
-		club.setType("some other type of club");
-		bob.attack();
+		if (cmd == "EXIT")
+			return (0);
+		else if (cmd == "ADD")
+			phonebook.newContact();
+		else if (cmd == "SEARCH")
+			phonebook.printContact();
+		else
+			std::cout << "\n-----------------\nCommand not recognize, please enter a valid command\n\n";
+		std::cout << COMMANDS;
+		std::cout << "\nEnter the command : ";
 	}
-	{
-		Weapon club = Weapon("crude spiked club");
-		HumanB jim("Jim");
-	//	jim.setWeapon(club);
-		jim.attack();
-		club.setType("some other type of club");
-		jim.attack();
-	}
-	return 0;
 }
