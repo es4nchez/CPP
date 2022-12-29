@@ -21,6 +21,8 @@ int main( void )
 	{
 		Bureaucrat	b1("Henry", 50);
 		Bureaucrat	b2("Josef", -10);
+		std::cout << b1 << std::endl;
+		std::cout << b2 << std::endl;;
 	}
 	catch (std::exception & e)
 	{
@@ -29,7 +31,8 @@ int main( void )
 
 	Bureaucrat	b3("Marvin", 5);
 	Bureaucrat	b4("Romeo", 56);
-	std::cout << b3;
+	std::cout << b3 << std::endl;;
+	std::cout << b4 << std::endl;;
 
 	try
 	{
@@ -52,6 +55,6 @@ int main( void )
 	}
 
 	Bureaucrat b5("Thierry", 42);
-	//std::cout << b5;
+	std::cout << b5 << std::endl;;
 	return 0;
 }

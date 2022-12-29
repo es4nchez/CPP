@@ -25,6 +25,8 @@ class Cat : public Animal
 public:
 
 	Cat();
+	Cat(const Cat &c);
+	Cat & operator=( Cat const & c );
 	~Cat();
 
 };

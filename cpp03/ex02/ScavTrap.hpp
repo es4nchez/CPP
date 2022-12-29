@@ -24,12 +24,18 @@ class ScavTrap : public ClapTrap
 
 public:
 
+	ScavTrap();
 	ScavTrap( std::string nameGiven);
+	ScavTrap(ScavTrap const &scav);
+	ScavTrap &operator=(ScavTrap const &scav);
 	~ScavTrap();
-	void guardGate();
 
+	void guardGate();
 	void attack(const std::string& target);
 
+private:
+
+	bool guardGateMode;
 };
 
 #endif

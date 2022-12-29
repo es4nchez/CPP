@@ -43,5 +43,6 @@ int main( void )
 	delete i;
 	delete wi;
 	delete wmeta;
+	while(1)
 	return 0;
 }

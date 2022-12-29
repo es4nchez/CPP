@@ -19,6 +19,24 @@ Cat::Cat() : Animal()
 	std::cout << "The cat is alive" << std::endl;
 }
 
+Cat::Cat(const Cat &a)
+{
+	*this = a;
+	std::cout << "CopyCat constructor called" << std::endl;
+	return;
+}
+
+Cat & Cat::operator=( Cat const & a )
+{
+    if ( this != &a )
+	{
+        this->type = a.type;
+		this->sound = a.sound;
+	}
+	std::cout << "CopyCat Assignement called" << std::endl;
+    return *this;
+}
+
 Cat::~Cat()
 {
 	std::cout << "The cat is dead :(" << std::endl;

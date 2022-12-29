@@ -6,7 +6,7 @@ Bureaucrat::Bureaucrat(std::string name, int grade): name(name), grade(grade)
         throw GradeTooHighException();
     if (grade > 150)
         throw GradeTooLowException();
-    std::cout << "A bureaucrat named "<< name << ", and level " << grade << " is born" << std::endl;
+   // std::cout << "A bureaucrat named "<< name << ", and level " << grade << " is born" << std::endl;
 }
 
 Bureaucrat::~Bureaucrat()
@@ -35,12 +35,12 @@ void    Bureaucrat::decrementGrade(int decr)
     std::cout << "Level of " << this->name << " is now " << this->grade << std::endl;
 }
 
-std::string Bureaucrat::getName()
+std::string Bureaucrat::getName() const
 {
     return (this->name);
 }
 
-int Bureaucrat::getGrade()
+int Bureaucrat::getGrade() const
 {
 
     return(this->grade);
@@ -62,7 +62,7 @@ Bureaucrat&	Bureaucrat::operator =(Bureaucrat& other) {
 	return *this;
 }
 
-std::ostream&	operator<<(std::ostream &cout, Bureaucrat& bureaucrat) {
-	cout << bureaucrat.getName() << ", bureaucrat of grade " << bureaucrat.getGrade() << std::endl;
-	return cout;
+std::ostream&	operator<<(std::ostream &out, const Bureaucrat& bureaucrat) {
+	out << bureaucrat.getName() << ", bureaucrat of grade " << bureaucrat.getGrade();
+	return out;
 }

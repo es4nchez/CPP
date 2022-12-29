@@ -24,6 +24,8 @@ class  Brain
 public:
 
 	Brain();
+	Brain(const Brain &c);
+	Brain & operator=( Brain const & a );
 	~Brain();
 
 protected:

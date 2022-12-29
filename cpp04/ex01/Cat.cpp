@@ -11,16 +11,37 @@
 /* ************************************************************************** */
 
 #include "Cat.hpp"
+#include "Brain.hpp"
 
 Cat::Cat() : Animal()
 {
 	this->type = "Cat";
 	this->sound = "Miiaaouuuu";
-	std::cout << "The cat is alive !" << std::endl;
 	this->brain = new Brain();
+	std::cout << "The cat is alive" << std::endl;
+}
+
+Cat::Cat(const Cat &a)
+{
+	*this = a;
+	std::cout << "CopyCat constructor called" << std::endl;
+	return;
+}
+
+Cat & Cat::operator=( Cat const & a )
+{
+    this->type = a.type;
+	if (this->brain)
+		delete (this->brain);
+	this->brain = new Brain();
+	//            delete brain;
+       //     brain = new Brain(*a.brain);
+	std::cout << "CopyCat Assignement called" << std::endl;
+    return *this;
 }
 
 Cat::~Cat()
 {
+	delete this->brain;
 	std::cout << "The cat is dead :(" << std::endl;
 }

@@ -24,6 +24,8 @@ class  Animal
 public:
 
 	Animal();
+	Animal(const Animal &c);
+	Animal & operator=( Animal const & a );
 	~Animal();
 
 	void	makeSound() const;

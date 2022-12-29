@@ -19,6 +19,24 @@ Animal::Animal()
 	std::cout << "An animal is alive" << std::endl;
 }
 
+Animal::Animal(const Animal &a)
+{
+	*this = a;
+	std::cout << "Copy constructor called" << std::endl;
+	return;
+}
+
+Animal & Animal::operator=( Animal const & a )
+{
+    if ( this != &a )
+	{
+        this->type = a.type;
+		this->sound = a.sound;
+	}
+	std::cout << "Copy Assignement called" << std::endl;
+    return *this;
+}
+
 Animal::~Animal()
 {
 	std::cout << "An animal is dead" << std::endl;
