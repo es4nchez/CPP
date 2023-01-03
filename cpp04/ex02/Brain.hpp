@@ -24,9 +24,9 @@ class  Brain
 public:
 
 	Brain();
+	Brain(const Brain &c);
+	Brain & operator=( Brain const & a );
 	~Brain();
-
-protected:
 
 	std::string	ideas[100];
 

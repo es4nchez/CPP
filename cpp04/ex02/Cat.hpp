@@ -26,12 +26,12 @@ class Cat : public Animal
 public:
 
 	Cat();
+	Cat(const Cat &c);
+	Cat & operator=( Cat const & c );
 	~Cat();
 
 private:
-
-	Brain *brain;
-
+	Brain*	brain;
 };
 
 #endif

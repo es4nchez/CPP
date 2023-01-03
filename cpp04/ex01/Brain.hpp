@@ -28,8 +28,6 @@ public:
 	Brain & operator=( Brain const & a );
 	~Brain();
 
-protected:
-
 	std::string	ideas[100];
 
 };

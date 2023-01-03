@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.hpp                                       :+:      :+:    :+:   */
+/*   WrongCat.hp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esanchez <marvin@42lausanne.ch>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -25,6 +25,8 @@ class WrongCat : public WrongAnimal
 public:
 
 	WrongCat();
+	WrongCat(const WrongCat &c);
+	WrongCat & operator=( WrongCat const & a );
 	~WrongCat();
 
 };

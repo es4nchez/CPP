@@ -16,12 +16,13 @@ Dog::Dog() : Animal()
 {
 	this->type = "Dog";
 	this->sound = "Wouaaf";
-	this->brain = new Brain();
 	std::cout << "The Dog is alive" << std::endl;
+	this->brain = new Brain();
 }
 
 Dog::Dog(const Dog &a)
 {
+	brain = NULL;
 	*this = a;
 	std::cout << "CopyDog constructor called" << std::endl;
 	return;
@@ -33,7 +34,11 @@ Dog & Dog::operator=( Dog const & a )
 	{
         this->type = a.type;
 		this->sound = a.sound;
-		this->brain = a.brain;
+		if (this->brain)
+			delete this->brain;
+		this->brain = new Brain;
+		this->brain->operator=(*a.brain);
+		// this->brain = a.brain;
 	}
 	std::cout << "CopyDog Assignement called" << std::endl;
     return *this;

@@ -24,6 +24,8 @@ class  WrongAnimal
 public:
 
 	WrongAnimal();
+	WrongAnimal(const WrongAnimal &c);
+	WrongAnimal & operator=( WrongAnimal const & a );
 	~WrongAnimal();
 
 	void	makeSound() const;

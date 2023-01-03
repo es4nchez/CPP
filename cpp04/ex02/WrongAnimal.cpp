@@ -19,6 +19,24 @@ WrongAnimal::WrongAnimal()
 	std::cout << "A wrong animal is alive" << std::endl;
 }
 
+WrongAnimal::WrongAnimal(const WrongAnimal &a)
+{
+	*this = a;
+	std::cout << "CopyWrong constructor called" << std::endl;
+	return;
+}
+
+WrongAnimal & WrongAnimal::operator=( WrongAnimal const & a )
+{
+    if ( this != &a )
+	{
+        this->type = a.type;
+		this->sound = a.sound;
+	}
+	std::cout << "CopyWrong Assignement called" << std::endl;
+    return *this;
+}
+
 WrongAnimal::~WrongAnimal()
 {
 	std::cout << "A wrong animal is dead" << std::endl;

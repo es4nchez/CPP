@@ -23,6 +23,7 @@ Cat::Cat() : Animal()
 
 Cat::Cat(const Cat &a)
 {
+//	this->brain = NULL;
 	*this = a;
 	std::cout << "CopyCat constructor called" << std::endl;
 	return;
@@ -31,11 +32,12 @@ Cat::Cat(const Cat &a)
 Cat & Cat::operator=( Cat const & a )
 {
     this->type = a.type;
-	if (this->brain)
-		delete (this->brain);
-	this->brain = new Brain();
-	//            delete brain;
-       //     brain = new Brain(*a.brain);
+//	if (this->brain)
+//		delete (this->brain);
+//	this->brain = new Brain();
+	delete this->brain;
+    this->brain = new Brain(*a.brain);
+//	this->brain->operator=(*a.brain);
 	std::cout << "CopyCat Assignement called" << std::endl;
     return *this;
 }

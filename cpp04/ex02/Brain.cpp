@@ -14,7 +14,31 @@
 
 Brain::Brain()
 {
+	for (int i = 0; i < 100; ++i)
+	{
+		ideas[i] = "I have no idea what i'm doing";
+	}
 	std::cout << "An Brain is alive" << std::endl;
+}
+
+Brain::Brain(const Brain &a)
+{
+	*this = a;
+	std::cout << "CopyBrain constructor called" << std::endl;
+	return;
+}
+
+Brain & Brain::operator=( Brain const & a )
+{
+    if ( this != &a )
+    {
+ 		for (int i = 0; i < 100; ++i)
+		{
+			ideas[i] = a.ideas[i];
+		}
+	}
+	std::cout << "CopyBrain Assignement called" << std::endl;
+    return *this;
 }
 
 Brain::~Brain()

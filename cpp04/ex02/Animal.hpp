@@ -23,15 +23,20 @@ class  Animal
 
 public:
 
-	Animal();
-	~Animal();
-	void	makeSound() const;
+	// Animal();
+	// Animal(const Animal &c);
+	virtual Animal & operator=( Animal const & a );
+	virtual ~Animal();
+
+	virtual void	makeSound() const;
 
 protected:
 
+	Animal();
+	Animal(const Animal &c);
+
 	std::string	type;
 	std::string	sound;
-
 };
 
 

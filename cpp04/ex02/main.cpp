@@ -23,22 +23,27 @@
 int main( void )
 {
 	std::cout << std::endl;
+	{
+		const Animal* j = new Dog();
+		const Animal* i = new Cat();
 
-	const Dog* j = new Dog();
-	const Cat* i = new Cat();
+		const WrongAnimal* wmeta = new WrongAnimal();
+		const WrongAnimal* wi = new WrongCat();
 
-	const WrongAnimal* wmeta = new WrongAnimal();
-	const WrongAnimal* wi = new WrongCat();
+		i->makeSound();
+		j->makeSound();
 
-	i->makeSound(); //will output the cat sound!
-	j->makeSound();
+		wmeta->makeSound();
+		wi->makeSound();
 
-	wmeta->makeSound();
-	wi->makeSound();
+		delete j;
+		delete i;
+		delete wi;
+		delete wmeta;
 
-	delete j;
-	delete i;
-	delete wi;
-	delete wmeta;
+		// const Animal* meta = new Animal();  // uncomment for testing 
+		// meta->makeSound();
+		// delete meta;
+	}
 	return 0;
 }

@@ -20,6 +20,6 @@ fclean: clean
 re:		fclean all
 
 cheaks:
-		leaks --atExit -- ./${NAME}
+		leaks -atExit -- ./${NAME}
 
 .PHONY: all clean fclean re cheaks
