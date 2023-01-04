@@ -40,6 +40,22 @@ int main( void )
 		delete i;
 		delete wi;
 		delete wmeta;
+	}
+
+	std::cout << std::endl;
+	{
+		const int nb = 10;
+   		Animal** animals = new Animal*[nb];
+   		for (int i = 0; i < nb; ++i)
+		{
+    		if (i % 2 == 0)
+     		   animals[i] = new Dog();
+    		else
+     		    animals[i] = new Cat();
+   		 }
+   		 for (int i = 0; i < nb; ++i)
+    		    delete animals[i];
+   		 delete[] animals;
 
 		// const Animal* meta = new Animal();  // uncomment for testing 
 		// meta->makeSound();

@@ -21,26 +21,39 @@
 
 int main( void )
 {
+
+
+	
 	std::cout << std::endl;
+
 
 	const Animal* meta = new Animal();
 	const Animal* j = new Dog();
 	const Animal* i = new Cat();
-
-	const WrongAnimal* wmeta = new WrongAnimal();
-	const WrongAnimal* wi = new WrongCat();
-
-	i->makeSound(); //will output the cat sound!
+	std::cout << j->getType() << " is a type of animal" << std::endl;
+	std::cout << i->getType() << " is type of animal" << std::endl;
+	i->makeSound();
 	j->makeSound();
 	meta->makeSound();
-
-	wmeta->makeSound();
-	wi->makeSound();
 
 	delete meta;
 	delete j;
 	delete i;
-	delete wi;
-	delete wmeta;
+
+
+	const Animal* k = new Animal();
+
+	const WrongAnimal* o = new WrongAnimal();
+	const WrongAnimal* p = new WrongCat();
+
+	k->makeSound();
+
+	o->makeSound();
+	p->makeSound();
+
+	delete k;
+	delete o;
+	delete p;
+
 	return 0;
 }

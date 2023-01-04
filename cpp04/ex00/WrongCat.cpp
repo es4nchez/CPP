@@ -22,7 +22,7 @@ WrongCat::WrongCat() : WrongAnimal()
 WrongCat::WrongCat(const WrongCat &a)
 {
 	*this = a;
-	std::cout << "CopyCat constructor called" << std::endl;
+	std::cout << "CopyWrongCat constructor called" << std::endl;
 	return;
 }
 
