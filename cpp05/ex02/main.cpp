@@ -15,30 +15,46 @@
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 #include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 
 int main( void )
 {
+	Bureaucrat				b1("Fred", 1);
+	Bureaucrat				b2("Georges", 60);
+	Bureaucrat				b3("Alfred", 150);
+	ShrubberyCreationForm	f1("Garden");
+	RobotomyRequestForm		f2("Henry");
+	PresidentialPardonForm	f3("Zaphod");
+	PresidentialPardonForm	f4("Humma Kavula");
 
-	{try
-	{
-		Form	f1("\nInternship", false, 50, 12);
-		Form	f2("Full time Job", true, 101, 42);
-		std::cout << f1 << std::endl;
-		std::cout << f2 << std::endl;;
-	}
-	catch (std::exception & e)
-	{
-		std::cout << "Error: " << e.what() << std::endl;
-	}}
-	
-	Form		f3("MoonInternship", true, 55, 12);
-	Bureaucrat	b1("Fred", 51);
 
-	std::cout << std::endl << f3 << std::endl;
-	std::cout << b1 << std::endl;
+	b3.signForm(f1);
+	b2.signForm(f1);
+
+	b2.signForm(f2);
+	b1.signForm(f2);
+
+	b2.signForm(f3);
 	b1.signForm(f3);
-	std::cout << f3 << std::endl;
-	ShrubberyCreationForm ff("Garden");
+
+	std::cout << std::endl;
+
+	b3.executeForm(f1);
+	b2.executeForm(f1);
+
+	b2.executeForm(f2);
+	b1.executeForm(f2);
+
+	b2.executeForm(f3);
+	b1.executeForm(f3);
+	b1.executeForm(f4);
+	std::cout << std::endl;
+
+
+
+
+	
 //	ShrubberyCreationForm ff1;
 }

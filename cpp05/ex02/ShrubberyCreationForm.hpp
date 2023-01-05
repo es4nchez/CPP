@@ -11,17 +11,20 @@ class ShrubberyCreationForm;
 #include "Bureaucrat.hpp"
 #include "Form.hpp"
 
+
 class  ShrubberyCreationForm : public Form
 {
 
 public:
 
+    ShrubberyCreationForm();
 	ShrubberyCreationForm(const std::string target);
+    ShrubberyCreationForm(const ShrubberyCreationForm &brc);
+    ShrubberyCreationForm &operator=(const ShrubberyCreationForm &brc);
 	~ShrubberyCreationForm();
 
-
-
-    void        beSigned(const Bureaucrat& bureaucrat);
+    void    formAction() const;
+    void    beSigned(const Bureaucrat& bureaucrat);
     
 private:
 

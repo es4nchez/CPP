@@ -14,7 +14,10 @@ class  Form
 
 public:
 
+    Form();
 	Form(std::string named, bool sign, int gradeToSign, int gradeToExecute);
+    Form(const Form &frm);
+	Form &operator=(const Form &frm);
 	~Form();
 
     std::string getName() const;
@@ -31,7 +34,6 @@ public:
     class GradeTooLowException: public std::exception {
 			const char*	what() const throw();
 		};
-
     
 
 private:

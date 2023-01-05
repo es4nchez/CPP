@@ -1,5 +1,7 @@
 #include "Form.hpp"
 
+Form::Form() {}
+
 Form::Form(std::string name, bool sign, int gradeToSign, int gradeToExecute): name(name), sign(sign), gradeToSign(gradeToSign), gradeToExecute(gradeToExecute) 
 {
     if (gradeToSign < 0 || gradeToExecute < 0)
@@ -9,41 +11,32 @@ Form::Form(std::string name, bool sign, int gradeToSign, int gradeToExecute): na
    
 }
 
-Form::~Form()
-{
+Form::Form(const Form &frm) {(*this) = frm;}
 
-   
+Form &Form::operator=(const Form &frm) 
+{
+	if (this != &frm)
+	{   
+        this->sign = frm.sign;
+        this->gradeToSign = frm.gradeToSign;
+		this->gradeToExecute = frm.gradeToExecute;
+	}
+	return (*this);
 }
 
-std::string Form::getName() const
-{
-    return (this->name);
-}
+Form::~Form() {}
 
-bool Form::getSigned() const
-{
-    return (this->sign);
-}
+std::string Form::getName() const {return (this->name);}
 
-int Form::getGradeToSign() const
-{
-    return (this->gradeToSign);
-}
+bool Form::getSigned() const {return (this->sign);}
 
-int Form::getGradeToExecute() const
-{
-    return (this->gradeToExecute);
-}
+int Form::getGradeToSign() const {return (this->gradeToSign);}
 
-const char*	   Form::GradeTooHighException::what()  const throw()
-{
-    return "Grade too high !";
-}
+int Form::getGradeToExecute() const {return (this->gradeToExecute);}
 
-const char*	   Form::GradeTooLowException::what()  const throw()
-{
-    return "Grade too low !";
-}
+const char*	   Form::GradeTooHighException::what()  const throw() {return "Grade too high !";}
+
+const char*	   Form::GradeTooLowException::what()  const throw() {return "Grade too low !";}
 
 void    Form::beSigned(const Bureaucrat& bureaucrat) {
 

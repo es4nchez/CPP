@@ -1,5 +1,5 @@
-SRCS	= main.cpp
-NAME 	= ScalarConversion
+SRCS	= main.cpp Scalar.cpp
+NAME 	= convert
 COMP 	= c++
 CXXFLAGS 	= -Wall -Wextra -Werror -std=c++98
 
