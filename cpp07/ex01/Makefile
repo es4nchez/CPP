@@ -1,5 +1,5 @@
-SRCS	= main.cpp Convert.cpp NumberType.cpp
-NAME 	= convert
+SRCS	= main.cpp
+NAME 	= Whatever
 COMP 	= c++
 CXXFLAGS 	= -Wall -Wextra -Werror -std=c++98
 

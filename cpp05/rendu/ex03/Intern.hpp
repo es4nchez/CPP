@@ -24,17 +24,18 @@ public:
 	~Intern();
 
     Form*   makeForm(std::string formName, std::string target);
+    int     formNumber(std::string formName);
 
-    struct Forms
-    {
-        std::string formName;
-       
-        int y;
-    };
+    typedef Form *(Intern::*formPtr)(const std::string);
+
+    Form*	newShrubberyForm(const std::string target);
+    Form*	newRobotomyForm(const std::string target);
+    Form*	newPresidentialForm(const std::string target);
 
 private:
 
-    Forms   forms[3];
+    std::string    forms[3];
+    formPtr        newForms[3];
 };
 
 #endif

@@ -40,7 +40,7 @@ Form*	Intern::newRobotomyForm(const std::string target)
 Form*	Intern::newPresidentialForm(const std::string target)
 {
 	return (new PresidentialPardonForm(target));
-}
+} 
 
 int     Intern::formNumber(std::string formName)
 {

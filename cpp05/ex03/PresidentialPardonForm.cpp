@@ -1,6 +1,6 @@
 #include "PresidentialPardonForm.hpp"
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string target): Form("PresidentialPardonForm", false, 25, 5), target(target) {}
+PresidentialPardonForm::PresidentialPardonForm(const std::string target): Form("PresidentialPardonForm", false, 25, 5), target(target) { std::cout << "Pres creation" << std::endl;}
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm &frm) {(*this) = frm;}
 

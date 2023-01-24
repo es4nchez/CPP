@@ -12,54 +12,28 @@
 
 #include <iostream>
 #include <fstream>
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "Iter.hpp"
 
+void    enumerate(int number)
+{
+    std::cout << "This is number " << number << " !" << std::endl;
+}
+
+void    enumerateBis(std::string name)
+{
+    std::cout << "My name is " << name << " !" << std::endl;
+}
 
 int main( void )
 {
+    int numbers[5] = {1, 2, 3, 4, 5};
+    std::string names[5] = {"Tom", "Jerry", "Henry", "Bernadette", "Francis"};
 
-	try
-	{
-		Form	f1("\nInternship", false, 50, 12);
-		Form	f2("Full time Job", true, 101, 42);
-		std::cout << f1 << std::endl;
-		std::cout << f2 << std::endl;;
-	}
-	catch (std::exception & e)
-	{
-		std::cout << "Error: " << e.what() << std::endl;
-	}
-	
-	try
-	{
-		Form		f3("MoonInternship", true, 55, 12);
-		Form		f4("MoonInternshipV2", true, 55, 12);
-		Bureaucrat	b1("Fred", 51);
-		Bureaucrat	b2("Useless", 150);
+    iter(numbers, 5, enumerate);
+    iter(names, 5, enumerateBis);
 
-		std::cout << std::endl << f3 << std::endl;
-		std::cout << b1 << std::endl;
-		b2.signForm(f3);
-		b1.signForm(f3);
-		f4.beSigned(b1);
-		std::cout << f3 << std::endl;
-		std::cout << f4 << std::endl;
-	}
-	catch (std::exception & e)
-	{
-		std::cout << "Error: " << e.what() << std::endl;
-	}
+    return 0;
 
-	try
-	{
-		Form		f4("MoonInternshipV2", true, 55, 12);
-		Bureaucrat	b2("Useless", 150);
 
-		f4.beSigned(b2);
-	}
-	catch (std::exception & e)
-	{
-		std::cout << "Error: " << e.what() << std::endl;
-	}
+    return 0;
 }

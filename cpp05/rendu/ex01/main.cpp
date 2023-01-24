@@ -19,7 +19,7 @@
 int main( void )
 {
 
-	{try
+	try
 	{
 		Form	f1("\nInternship", false, 50, 12);
 		Form	f2("Full time Job", true, 101, 42);
@@ -29,13 +29,37 @@ int main( void )
 	catch (std::exception & e)
 	{
 		std::cout << "Error: " << e.what() << std::endl;
-	}}
+	}
 	
-	Form		f3("MoonInternship", true, 55, 12);
-	Bureaucrat	b1("Fred", 51);
+	try
+	{
+		Form		f3("MoonInternship", true, 55, 12);
+		Form		f4("MoonInternshipV2", true, 55, 12);
+		Bureaucrat	b1("Fred", 51);
+		Bureaucrat	b2("Useless", 150);
 
-	std::cout << std::endl << f3 << std::endl;
-	std::cout << b1 << std::endl;
-	b1.signForm(f3);
-	std::cout << f3 << std::endl;
+		std::cout << std::endl << f3 << std::endl;
+		std::cout << b1 << std::endl;
+		b2.signForm(f3);
+		b1.signForm(f3);
+		f4.beSigned(b1);
+		std::cout << f3 << std::endl;
+		std::cout << f4 << std::endl;
+	}
+	catch (std::exception & e)
+	{
+		std::cout << "Error: " << e.what() << std::endl;
+	}
+
+	try
+	{
+		Form		f4("MoonInternshipV2", true, 55, 12);
+		Bureaucrat	b2("Useless", 150);
+
+		f4.beSigned(b2);
+	}
+	catch (std::exception & e)
+	{
+		std::cout << "Error: " << e.what() << std::endl;
+	}
 }

@@ -1,6 +1,6 @@
 #include "ShrubberyCreationForm.hpp"
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string target): Form("ShrubberyCreationForm", false, 145, 137), target(target) {}
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string target): Form("ShrubberyCreationForm", false, 145, 137), target(target) {std::cout << "shrub' creation" << std::endl;}
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm &frm) {(*this) = frm;}
 

@@ -1,5 +1,5 @@
-SRCS	= main.cpp Convert.cpp NumberType.cpp
-NAME 	= convert
+SRCS	= main.cpp Data.cpp
+NAME 	= serialize
 COMP 	= c++
 CXXFLAGS 	= -Wall -Wextra -Werror -std=c++98
 

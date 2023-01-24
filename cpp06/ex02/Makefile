@@ -1,5 +1,5 @@
-SRCS	= main.cpp Convert.cpp NumberType.cpp
-NAME 	= convert
+SRCS	= main.cpp Base.cpp A.cpp B.cpp C.cpp Genify.cpp
+NAME 	= genify
 COMP 	= c++
 CXXFLAGS 	= -Wall -Wextra -Werror -std=c++98
 

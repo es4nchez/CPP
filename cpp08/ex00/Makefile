@@ -1,7 +1,7 @@
-SRCS	= main.cpp Convert.cpp NumberType.cpp
-NAME 	= convert
+SRCS	= main.cpp
+NAME 	= EasyFind
 COMP 	= c++
-CXXFLAGS 	= -Wall -Wextra -Werror -std=c++98
+CXXFLAGS 	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 
 OBJS	= ${SRCS:.cpp=.o}
 

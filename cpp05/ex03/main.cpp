@@ -55,19 +55,16 @@ int main( void )
 	}
 	std::cout << std::endl;
 
+	Bureaucrat				b1("Fred", 1);
 	Intern	filip;
 	Form* rrf1;
-	Form* rrf2;
-	Form* rrf3;
-	Form* rrf4;
+	
+	rrf1 = filip.makeForm("ShrubberyCreationForm", "test2");
 
-	rrf1 = filip.makeForm("test1", "test2");
-	rrf2 = filip.makeForm("ShrubberyCreationForm", "test2");
-	rrf3 = filip.makeForm("RobotomyRequestForm", "test2");
-	rrf4 = filip.makeForm("PresidentialPardonForm", "test2");
 
+	b1.signForm(*rrf1);
 
 	delete rrf1;
 	
-//	ShrubberyCreationForm ff1;
+
 }

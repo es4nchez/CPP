@@ -2,11 +2,10 @@
 
 Bureaucrat::Bureaucrat(std::string name, int grade): name(name), grade(grade) 
 {
-    if (grade < 0)
+    if (grade < 1)
         throw GradeTooHighException();
     if (grade > 150)
         throw GradeTooLowException();
-   // std::cout << "A bureaucrat named "<< name << ", and level " << grade << " is born" << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat &brc) {(*this) = brc;}
@@ -24,7 +23,7 @@ Bureaucrat::~Bureaucrat() {std::cout << "A bureaucrat named " << this->name << "
 
 void    Bureaucrat::incrementGrade(int incr)
 {
-    if (this->grade - incr  < 0)
+    if (this->grade - incr  < 1)
         throw GradeTooHighException();
     if (this->grade - incr > 150)
         throw GradeTooLowException();
@@ -34,7 +33,7 @@ void    Bureaucrat::incrementGrade(int incr)
 
 void    Bureaucrat::decrementGrade(int decr)
 {
-    if (this->grade + decr  < 0)
+    if (this->grade + decr  < 1)
         throw GradeTooHighException();
     if (this->grade + decr > 150)
         throw GradeTooLowException();
