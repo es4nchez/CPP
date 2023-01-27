@@ -12,15 +12,27 @@
 
 #include <iostream>
 #include <fstream>
+#include <vector>
+#include <list>
+#include <map>
+#include <algorithm>
+#include <string>
 #include "easyfind.hpp"
 
 
 int main()
 {
-    std::vector<int> v = {1, 2, 3, 4, 5};
+    ////// Vector tests
+    std::vector<int>    v;
+
+    v.push_back(50);
+    v.push_back(9);
+    v.push_back(15);
+    v.push_back(31);
+    v.push_back(42);
     try
     {
-        int result = easyfind(v, 3);
+        int result = easyfind(v, 31);
         std::cout << "Value found: " << result << std::endl;
     }
     catch (std::runtime_error& e)
@@ -37,10 +49,18 @@ int main()
         std::cout << e.what() << std::endl;
     }
 
-    std::list<int> l = {10, 20, 30, 40, 50};
+    ////// Lists tests
+    std::list<int> l;
+
+    l.push_back(14);
+    l.push_back(33);
+    l.push_back(8);
+    l.push_back(42);
+    l.push_back(16);
+    l.push_back(88);
     try
     {
-        int result = easyfind(l, 30);
+        int result = easyfind(l, 16);
         std::cout << "Value found: " << result << std::endl;
     }
     catch (std::runtime_error& e)
@@ -56,6 +76,7 @@ int main()
     {
         std::cout << e.what() << std::endl;
     }
+
     return 0;
 }
 
