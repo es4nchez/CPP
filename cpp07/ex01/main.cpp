@@ -14,12 +14,12 @@
 #include <fstream>
 #include "Iter.hpp"
 
-void    enumerate(int number)
+void    enumerate(int const &number)
 {
     std::cout << "This is number " << number << " !" << std::endl;
 }
 
-void    enumerateBis(std::string name)
+void    enumerateBis(std::string const &name)
 {
     std::cout << "My name is " << name << " !" << std::endl;
 }
@@ -31,9 +31,6 @@ int main( void )
 
     iter(numbers, 5, enumerate);
     iter(names, 5, enumerateBis);
-
-    return 0;
-
 
     return 0;
 }

@@ -16,18 +16,16 @@
 
 void    numbersTesting()
 {
-    Array<int> a(5); // create an array of 5 ints
+    Array<int> a(5);
     for (unsigned int i = 0; i < a.size(); ++i) {
         a[i] = i;
     }
 
-    // Print the elements of the array
     for (unsigned int i = 0; i < a.size(); ++i) {
         std::cout << a[i] << " ";
     }
     std::cout << std::endl;
 
-    // Test copy constructor
     Array<int> b(a);
     b[0] = 100;
     std::cout << "Original Array: ";
@@ -41,7 +39,6 @@ void    numbersTesting()
     }
     std::cout << std::endl;
 
-    // Test assignment operator
     Array<int> c;
     c = a;
     c[0] = 200;
@@ -56,7 +53,6 @@ void    numbersTesting()
     }
     std::cout << std::endl;
 
-    // Test out-of-bounds error
     try {
         Array<int> d(2);
         std::cout << d[3] << std::endl;
@@ -78,7 +74,6 @@ void    stringTesting()
     }
     std::cout << std::endl;
 
-    // Test copy
     Array<std::string> b(a);
     b[0] = "What are you ? ";
     std::cout << "Original Array: ";
@@ -92,7 +87,6 @@ void    stringTesting()
     }
     std::cout << std::endl;
 
-    // Test assignment
     Array<std::string> c;
     c = a;
     c[0] = "Hello ";
@@ -107,7 +101,6 @@ void    stringTesting()
     }
     std::cout << std::endl;
 
-    // Test out-of-bounds error
     try {
         Array<std::string> d(2);
         std::cout << d[3] << std::endl;

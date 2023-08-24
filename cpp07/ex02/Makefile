@@ -1,12 +1,12 @@
-SRCS	= testmain.cpp
+SRCS	= main.cpp
 NAME 	= Array
-COMP 	= c++
+CXX 	= c++
 CXXFLAGS 	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 
 OBJS	= ${SRCS:.cpp=.o}
 
 $(NAME):	$(OBJS)
-	$(COMP) $(CXXFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 all:	$(NAME)
 
