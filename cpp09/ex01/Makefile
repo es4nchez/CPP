@@ -1,5 +1,5 @@
-SRCS	= main.cpp
-NAME 	= EasyFind
+SRCS	= main.cpp RPN.cpp
+NAME 	= RPN
 CXX 	= c++
 CXXFLAGS 	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 

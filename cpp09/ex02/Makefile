@@ -1,5 +1,5 @@
-SRCS	= main.cpp
-NAME 	= EasyFind
+SRCS	= main.cpp PmergeMe.cpp
+NAME 	= PmergeMe
 CXX 	= c++
 CXXFLAGS 	= -Wall -Wextra -Werror -std=c++98 -fsanitize=address -g
 
